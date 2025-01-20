@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:garrage_nepal/pages/home/overview/overview.dart';
+import 'package:garrage_nepal/book_detail/widgets/book_detail.dart'; // Ensure this path is correct
+import 'package:garrage_nepal/home/home.dart'; // Ensure this path is correct
+import 'package:garrage_nepal/pages/home/overview/overview.dart'; // Ensure this path is correct
+import 'package:get/get.dart'; // Ensure GetX is imported
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false, // Removes the debug banner
       home: const HomeScreen(),
     );
@@ -30,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this); // 3 tabs
+    _tabController = TabController(length: 4, vsync: this); // Adjusted to 4 tabs
   }
 
   @override
@@ -60,8 +63,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             // Handle menu selection
             if (value == 1) {
               print('Option 1 selected');
+              // Add action for Option 1 if necessary
             } else if (value == 2) {
               print('Option 2 selected');
+              // Add action for Option 2 if necessary
             }
           },
         ),
@@ -71,6 +76,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             onPressed: () {
               // Handle notifications action
               print('Notifications clicked');
+              // Add functionality for notifications if needed
             },
           ),
         ],
@@ -87,10 +93,10 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       body: TabBarView(
         controller: _tabController,
         children: const [
-          Center(child: Text('Home Screen')),
-          Overview(),
-          Center(child: Text('Search Screen')),
-          Center(child: Text('Settings Screen')),
+          HomePage(), // Ensure this widget is defined
+          Overview(), // Ensure this widget is defined
+          BookDetails(), // Ensure this widget is defined
+          Center(child: Text('Settings Screen')), // Settings screen placeholder
         ],
       ),
     );
