@@ -1,11 +1,10 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:garrage_nepal/pages/home_pages.dart';
-import 'package:get/get.dart';
+import 'package:garrage_nepal/route/app_routes.dart';
 
 void main(){
-  runApp(Main());
+  runApp(const Main());
   
 }
 
@@ -14,9 +13,9 @@ class Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp.router(
+      routerConfig: router,
       debugShowCheckedModeBanner: false,
-      home: HomePages(),
     );
   }
 }

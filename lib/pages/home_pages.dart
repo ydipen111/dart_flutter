@@ -1,6 +1,8 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:garrage_nepal/route/route_enum.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePages extends StatelessWidget {
   const HomePages({super.key});
@@ -81,10 +83,14 @@ class HomePages extends StatelessWidget {
                 }, child: Text(' button')),
 
 
-                TextButton(onPressed: (){}, child: Text(' button')),
-                IconButton(onPressed: (){}, icon: Icon(Icons.add)),
-                FloatingActionButton(onPressed: (){}, child: Text(' button')),
-                MaterialButton(onPressed: (){}, child: Text(' button')),
+                TextButton(onPressed: (){
+
+                }, child: Text(' button')),
+                // IconButton(onPressed: (){}, icon: Icon(Icons.add)),
+                FloatingActionButton(onPressed: (){
+                  context.pushNamed(AppRoute.about.name);
+                }, child: Text(' About page')),
+                // MaterialButton(onPressed: (){}, child: Text(' button')),
               ],
             ),
           )
