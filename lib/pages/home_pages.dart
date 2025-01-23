@@ -86,7 +86,10 @@ class HomePages extends StatelessWidget {
                 TextButton(onPressed: (){
 
                 }, child: Text(' button')),
-                // IconButton(onPressed: (){}, icon: Icon(Icons.add)),
+
+                IconButton(onPressed: (){
+                  context.pushNamed(AppRoute.form.name);
+                }, icon: Icon(Icons.add)),
                 FloatingActionButton(onPressed: (){
                   context.pushNamed(AppRoute.about.name);
                 }, child: Text(' About page')),

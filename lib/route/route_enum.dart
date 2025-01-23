@@ -2,5 +2,6 @@
 
 enum AppRoute{
   home,
-  about
+  about,
+  form
 }
