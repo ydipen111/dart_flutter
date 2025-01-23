@@ -3,5 +3,6 @@
 enum AppRoute{
   home,
   about,
-  form
+  form,
+  grid
 }

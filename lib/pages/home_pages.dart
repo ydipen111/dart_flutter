@@ -71,6 +71,11 @@ class HomePages extends StatelessWidget {
                       );
                     });
                     }, child: Text(' button')),
+                OutlinedButton(onPressed: (){
+                  context.pushNamed(AppRoute.grid.name);
+                  
+
+                }, child: Text(' Grid-page')),
 
                 OutlinedButton(onPressed: (){
                   ScaffoldMessenger.of(context).hideCurrentSnackBar();
