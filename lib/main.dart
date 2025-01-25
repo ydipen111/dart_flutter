@@ -1,11 +1,13 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:garrage_nepal/route/app_routes.dart';
 
+
+
 void main(){
-  print("hello world");
-  runApp(const Main());
+  runApp(ProviderScope(child: Main()));
   
 }
 
