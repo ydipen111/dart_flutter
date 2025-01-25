@@ -4,6 +4,7 @@ import 'package:garrage_nepal/pages/about_pages.dart';
 import 'package:garrage_nepal/pages/form_page.dart';
 import 'package:garrage_nepal/pages/grid_page.dart';
 import 'package:garrage_nepal/pages/home_pages.dart';
+import 'package:garrage_nepal/pages/ui_page.dart';
 import 'package:garrage_nepal/route/route_enum.dart';
 import 'package:go_router/go_router.dart';
 
@@ -36,6 +37,14 @@ final router = GoRouter(
         builder: (context,state){
           return FormPage();
         }
+    ),
+
+    GoRoute(
+        path: '/ui-page',
+      name: AppRoute.ui.name,
+      builder: (context, state){
+          return UiPage();
+      }
     ),
 
     GoRoute(
