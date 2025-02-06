@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:garrage_nepal/providers/api_provider.dart';
+import 'package:garrage_nepal/route/route_enum.dart';
+import 'package:go_router/go_router.dart';
 
 class ItemList extends ConsumerWidget {
   final String label;
@@ -18,6 +20,13 @@ class ItemList extends ConsumerWidget {
                 itemBuilder: (context,index){
                   final item = data[index];
                   return ListTile(
+                    onTap: (){
+                      context.pushNamed(
+                        AppRoute.dishItemListx.name,
+                        pathParameters: {'id':item.idMeal});
+                    },
+
+
                     leading: CircleAvatar(
                       backgroundImage: CachedNetworkImageProvider(
                         item.strMealThumb

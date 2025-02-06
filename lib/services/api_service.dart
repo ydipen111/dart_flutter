@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:garrage_nepal/models/dish_idmeal.dart';
 import 'package:garrage_nepal/models/id_meal.dart';
 import 'package:garrage_nepal/models/mead_db.dart';
 import 'package:garrage_nepal/models/post.dart';
@@ -24,10 +25,19 @@ Future<List<Category>> fetchCategories() async {
 }
 
 
-Future<List<IdMeal>> fetchIdCategories() async {
-  final response = await Dio().get('https://www.themealdb.com/api/json/v1/1/categories.php');
-  final List categoriesJson = response.data['categories'];
+Future<List<IdMeal>> fetchIdCategories({required String query}) async {
+  final response = await Dio().get('https://www.themealdb.com/api/json/v1/1/filter.php', queryParameters: {
+    'i':query
+  },);
+  final List categoriesJson = response.data['meals'];
   return categoriesJson.map((json) => IdMeal.fromJson(json)).toList();
 }
 
 
+Future<List<DishIdMeal>> fetchIdCategoriesDish({required String id}) async {
+  final response = await Dio().get('https://www.themealdb.com/api/json/v1/1/lookup.php', queryParameters: {
+    'i':id
+  },);
+  final List categoriesJson = response.data['meals'];
+  return categoriesJson.map((json) => DishIdMeal.fromJson(json)).toList();
+}

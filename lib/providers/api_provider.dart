@@ -14,5 +14,10 @@ final mealProvider = FutureProvider((ref) async {
 });
 
 final idMealProvider = FutureProvider.family((ref,String query)async{
-  return fetchIdCategories();
+  return fetchIdCategories(query: query);
+});
+
+
+final idMealDishProvider = FutureProvider.family((ref,String id)async{
+  return fetchIdCategoriesDish(id: id);
 });
