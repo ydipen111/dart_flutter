@@ -1,3 +1,5 @@
+import 'package:garrage_nepal/pages/auth/login.dart';
+import 'package:garrage_nepal/pages/auth/signup.dart';
 import 'package:garrage_nepal/pages/home_pages.dart';
 import 'package:garrage_nepal/pages/item_list.dart';
 import 'package:garrage_nepal/pages/dishitem_list.dart';
@@ -11,9 +13,19 @@ final router = GoRouter(
       path: '/',
       name: AppRoute.home.name,
       builder: (context, state) {
-        return const HomePages();
+        return const LoginPage();
       },
       routes: [
+
+        GoRoute(
+            path: 'signup',
+            name: AppRoute.signup.name,
+          builder: (context,state){
+                    return Signup();
+
+
+          }
+        ),
         GoRoute(
             path: 'item-list/:label',
             name:  AppRoute.itemList.name,
