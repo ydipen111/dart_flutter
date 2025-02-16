@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:garrage_nepal/Constants/api.dart';
+import 'package:garrage_nepal/Constants/api_error.dart';
 import 'package:garrage_nepal/shared/client_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -16,8 +17,8 @@ class AuthService {
       print(response.data);
 
     } on DioException catch (err) {
-      print(err);
-      throw '$err';
+      throw ApiError.errorCheck(err).errMessage;
+
     }
   }
 
@@ -28,8 +29,7 @@ class AuthService {
       print(response.data);
 
     } on DioException catch (err) {
-      print(err);
-      throw '$err';
+      throw ApiError.errorCheck(err).errMessage;
     }
   }
 

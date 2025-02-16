@@ -4,6 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:garrage_nepal/shared/validat_provider.dart';
 
+// State provider for password visibility
+final passwordVisibilityProvider = StateProvider<bool>((ref) => false);
+
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
 
@@ -13,14 +16,13 @@ class LoginPage extends ConsumerStatefulWidget {
 
 class _LoginPageState extends ConsumerState<LoginPage> {
   final _formKey = GlobalKey<FormBuilderState>();
-  bool _isPasswordVisible = false; // State for password visibility
 
   @override
   Widget build(BuildContext context) {
+    final mode = ref.watch(validatProviderProvider);
+    final isPasswordVisible = ref.watch(passwordVisibilityProvider);
 
     return Scaffold(
-    final passShow = ref.watch(passShowProvider(id:1));
-    final mode = ref.watch(validatProviderProvider);
       appBar: AppBar(
         title: const Text('Login Page'),
       ),
@@ -44,21 +46,17 @@ class _LoginPageState extends ConsumerState<LoginPage> {
               const SizedBox(height: 20),
               FormBuilderTextField(
                 name: "password",
-                obscureText: !_isPasswordVisible, // Toggle obscureText
+                obscureText: !isPasswordVisible, // Watch Riverpod state
                 decoration: InputDecoration(
                   labelText: "Password",
                   border: const OutlineInputBorder(),
                   suffixIcon: IconButton(
                     icon: Icon(
-                      _isPasswordVisible
-                          ? Icons.visibility
-                          : Icons.visibility_off,
+                      isPasswordVisible ? Icons.visibility : Icons.visibility_off,
                     ),
                     onPressed: () {
-                      setState(() {
-                        _isPasswordVisible = !_isPasswordVisible;
-                        ref.read(passShowProvider(id:1).notifier).change();
-                      });
+                      ref.read(passwordVisibilityProvider.notifier).state =
+                      !isPasswordVisible;
                     },
                   ),
                 ),

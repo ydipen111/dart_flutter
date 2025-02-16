@@ -8,6 +8,10 @@ part 'client_provider.g.dart';
 @riverpod
 Dio Client (Ref ref) {
   return Dio(BaseOptions(
-    baseUrl: baseUrl
+    baseUrl: baseUrl,
+    headers: {
+      'content-Type':'application/json',
+      'accept':'application/json'
+    }
   ));
 }
