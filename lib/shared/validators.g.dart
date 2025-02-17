@@ -1,28 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'validat_provider.dart';
+part of 'validators.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$validatProviderHash() => r'45f330e3e0f1f1244e7e058760158c45533436f4';
-
-/// See also [ValidatProvider].
-@ProviderFor(ValidatProvider)
-final validatProviderProvider =
-    AutoDisposeNotifierProvider<ValidatProvider, AutovalidateMode>.internal(
-  ValidatProvider.new,
-  name: r'validatProviderProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$validatProviderHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef _$ValidatProvider = AutoDisposeNotifier<AutovalidateMode>;
-String _$passShowHash() => r'6d077e35b768c1807228c7018f798b4a31ffc8a8';
+String _$passShowHash() => r'a048d7148c086bd1caa42735d3b46df3bd524c16';
 
 /// Copied from Dart SDK
 class _SystemHash {

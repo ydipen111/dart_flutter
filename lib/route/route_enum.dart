@@ -1,8 +1,5 @@
-
-
 enum AppRoute{
-  home,
-  signup,
-  itemList,
-  dishItemListx
+  login,
+  signup
+
 }
